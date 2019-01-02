@@ -1,4 +1,4 @@
-save="/volume1/web/bing.jpg"
+save="/volume2/web/bing.jpg"
 wget "https://cn.bing.com/$(curl -s "http://bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"|grep -Po 'url[" :]+\K[^"]+')" -qO $save
 if !(cat /etc/synoinfo.conf|grep login_background_customize) then
 echo "login_background_customize=1">>/etc/synoinfo.conf
@@ -15,4 +15,4 @@ title=$(echo $story|grep -Po 'title[" :]+\K[^"]+')
 attribute=$(echo $story|grep -Po 'attribute[" :]+\K[^"]+')
 sed -i s/login_welcome_title=.*/login_welcome_title=\"$title\"/g /etc/synoinfo.conf
 sed -i s/login_welcome_msg=.*/login_welcome_msg=\"$attribute\"/g /etc/synoinfo.conf
-#ln -sf $save /usr/syno/etc/preference/admin/wallpaper
+ln -sf $save /usr/syno/etc/preference/skyhsiao/wallpaper
